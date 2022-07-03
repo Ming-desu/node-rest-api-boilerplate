@@ -1,12 +1,3 @@
-const dotenv = require('dotenv');
-const path = require('path');
-
-const ENV = process.env.NODE_ENV || 'development';
-
-dotenv.config({
-  path: path.resolve(`.env${ENV !== 'production' ? `.${ENV}` : ''}`),
-});
-
 const { DB_CONFIG } = require('./env');
 
 const { host, port, database, username, password } = DB_CONFIG;

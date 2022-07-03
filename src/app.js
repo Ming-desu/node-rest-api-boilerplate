@@ -1,28 +1,16 @@
 const express = require('express');
-const path = require('path');
-const dotenv = require('dotenv');
 const cors = require('cors');
 const compression = require('compression');
 const morgan = require('morgan');
 const helmet = require('helmet');
 
+const app = express();
+
+const { NODE_ENV } = require('./config/env');
 const { ALLOWED_ORIGINS } = require('./config/whitelists');
 const Logger = require('./utils/logger');
 
 const apiRoutes = require('./bin/www/routes');
-
-global.ENV = process.env.NODE_ENV || 'development';
-global.BASE_DIR = path.resolve(__dirname, '../');
-
-const app = express();
-
-dotenv.config({
-  path: path.resolve(
-    global.BASE_DIR,
-    `.env${global.ENV !== 'production' ? `.${global.ENV}` : ''}`,
-  ),
-});
-
 const models = require('./db/models');
 
 // Use middlewares
@@ -74,7 +62,7 @@ app.use((err, _req, res, next) => {
     status_code: statusCode,
   };
 
-  if (global.ENV === 'development') {
+  if (NODE_ENV === 'development') {
     Logger.error(err);
     log.stack = err.stack;
   }

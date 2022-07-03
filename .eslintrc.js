@@ -15,6 +15,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    camelcase: 0,
     'prettier/prettier': [
       'error',
       {
@@ -23,7 +24,7 @@ module.exports = {
       },
     ],
     'jsdoc/require-param-description': 0,
-    'jsdoc/require-return-description': 0,
+    'jsdoc/require-returns-description': 0,
     'jsdoc/require-property-description': 0,
   },
 };

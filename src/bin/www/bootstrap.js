@@ -7,7 +7,7 @@ const Logger = require('../../utils/logger');
 const app = require('../../app');
 const { socketServer } = require('./sockets');
 
-const { APP_NAME, PORT, USE_SSL } = require('../../config/env');
+const { APP_NAME, PORT, USE_SSL, NODE_ENV } = require('../../config/env');
 
 const onError = (error) => {
   if (error.syscall !== 'listen') {
@@ -49,7 +49,7 @@ if (USE_SSL) {
 // Setup socket io along the server
 socketServer(server);
 
-Logger.info(`${APP_NAME} on ${global.ENV} environment`);
+Logger.info(`${APP_NAME} on ${NODE_ENV} environment`);
 
 server.listen(PORT, () => {
   Logger.info(`Server listening in port ${PORT}`);
