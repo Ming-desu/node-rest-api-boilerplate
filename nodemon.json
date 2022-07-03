@@ -1,0 +1,5 @@
+{
+  "watch": ["src"],
+  "ext": "js",
+  "exec": "eslint --cache --fix ./src && node ./src/bin/www/bootstrap.js"
+}
