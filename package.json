@@ -1,0 +1,82 @@
+{
+  "name": "node-rest-api-boilerplate",
+  "version": "1.0.0",
+  "description": "REST API Boilerplate",
+  "main": "src/bin/www/bootstrap.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/bin/www/bootstrap.js",
+    "serve": "babel-node ./src/bin/www/bootstrap.js",
+    "watch": "nodemon",
+    "build": "rimraf ./build && babel ./src --out-dir ./build",
+    "clean": "rimraf ./build",
+    "lint": "eslint --fix ./src/bin/www/bootstrap.js",
+    "format": "prettier -w ./src",
+    "prod:start": "node ./build/bin/www/bootstrap.js",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:rollback": "npx sequelize-cli db:migrate:undo:all",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:seed:rollback": "npx sequelize-cli db:seed:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ming-desu/node-rest-api-boilerplate.git"
+  },
+  "author": "Joshua Ming Ricohermoso",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Ming-desu/node-rest-api-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Ming-desu/node-rest-api-boilerplate#readme",
+  "browserslist": {
+    "production": [
+      "> 0.25%",
+      "not dead"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": true
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "randomstring": "^1.2.2",
+    "rimraf": "^3.0.2",
+    "sequelize": "^6.21.2",
+    "socket.io": "^4.5.1",
+    "uuid": "^8.3.2",
+    "validate.js": "^0.13.1",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/node": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "babel-preset-minify": "^0.5.2",
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "sequelize-cli": "^6.4.1"
+  }
+}
